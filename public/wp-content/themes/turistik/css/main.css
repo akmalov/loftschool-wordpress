@@ -991,6 +991,10 @@ li {
     margin: auto;
 }
 
+img.alignleft, img.alignright {
+    width: 300px;
+}
+
 .alignright {
     float: right;
     margin: 5px 0 20px 20px;

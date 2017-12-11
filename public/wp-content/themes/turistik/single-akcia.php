@@ -8,7 +8,6 @@
   $prev = getAdjacentPost('prev', array('akcia'));
   $next = getAdjacentPost('next', array('akcia'));
   ?>
-
   <div class="content">
     <div class="article-title title-page">
       <?php the_title(); ?>
@@ -33,13 +32,19 @@
 
     <?php if($prev) : ?>
     <?php $fields = get_fields($prev->ID); ?>
+
       <div class="article-pagination__block pagination-prev-left">
         <a href="<?php echo get_permalink($prev->ID); ?>" class="article-pagination__link">
           <i class="icon icon-angle-double-left"></i>
           Предыдущая статья</a>
         <div class="wrap-pagination-preview pagination-prev-left">
           <div class="preview-article__img">
+            <?php if($fields['banner']['url']) : ?>
             <img src="<?= $fields['banner']['url'] ?>" class="preview-article__image">
+            <?php endif; ?>
+            <?php if(!$fields['banner']['url']) : ?>
+            <img src="<?php get_the_post_thumbnail_url($prev->ID) ?>" class="preview-article__image">
+            <?php endif; ?>
           </div>
           <div class="preview-article__content">
             <div class="preview-article__info"><a href="<?php echo get_permalink($prev->ID); ?>" class="post-date"><?php echo date('d.m.Y', strtotime($prev->post_date)); ?></a></div>

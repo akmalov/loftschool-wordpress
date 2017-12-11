@@ -40,9 +40,16 @@
           <i class="icon icon-angle-double-left"></i>
           Предыдущая статья</a>
         <div class="wrap-pagination-preview pagination-prev-left">
-          <div class="preview-article__img">
-            <img src="<?= $fields['banner']['url'] ?>" class="preview-article__image">
-          </div>
+          <?php if($fields['banner']['url']) : ?>
+            <div class="preview-article__img">
+              <img src="<?= $fields['banner']['url'] ?>" class="preview-article__image">
+            </div>
+          <?php endif; ?>
+          <?php if(!$fields['banner']['url']) : ?>
+            <div  class="preview-article__img">
+              <img src="<?php echo get_the_post_thumbnail_url($prev->ID) ?>" class="preview-article__image">
+            </div>
+          <?php endif; ?>
           <div class="preview-article__content">
             <div class="preview-article__info"><a href="<?php echo get_permalink($prev->ID); ?>" class="post-date"><?php echo date('d.m.Y', strtotime($prev->post_date)); ?></a></div>
             <div class="preview-article__text"><?php echo $prev->post_title ?></div>
@@ -57,8 +64,16 @@
         <a href="<?php echo get_permalink($next->ID); ?>" class="article-pagination__link">Следующая
           статья<i class="icon icon-angle-double-right"></i></a>
         <div class="wrap-pagination-preview pagination-prev-right">
-          <div class="preview-article__img">
-            <img src="<?= $fields['banner']['url'] ?>" class="preview-article__image"></div>
+          <?php if($fields['banner']['url']) : ?>
+            <div class="preview-article__img">
+              <img src="<?= $fields['banner']['url'] ?>" class="preview-article__image">
+            </div>
+          <?php endif; ?>
+          <?php if(!$fields['banner']['url']) : ?>
+            <div  class="preview-article__img">
+              <img src="<?php echo get_the_post_thumbnail_url($prev->ID) ?>" class="preview-article__image">
+            </div>
+          <?php endif; ?>
           <div class="preview-article__content">
             <div class="preview-article__info"><a href="<?php echo get_permalink($prev->ID); ?>" class="post-date"><?php echo date('d.m.Y', strtotime($next->post_date)); ?></a></div>
             <div class="preview-article__text"><?php echo $next->post_title; ?></div>
