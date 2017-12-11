@@ -928,17 +928,17 @@ li {
     padding: 0 10px;
 }
 
-.b-menu__list__item {
+.b-menu__list li {
     display: inline-block;
     margin-bottom: 5px;
     margin-right: 10px;
 }
 
-.b-menu__list__item:last-child {
+.b-menu__list li:last-child {
     margin-right: 0;
 }
 
-.b-menu__list__item__link {
+.b-menu__list li a {
     font-family: 'Lato', sans-serif;
     font-size: 1rem;
     color: #fefefe;
@@ -953,7 +953,7 @@ li {
     transition: all 0.3s ease;
 }
 
-.b-menu__list__item__link:hover, .b-menu__list__item__link:focus, .b-menu__list__item__link:active {
+.b-menu__list li a:hover, .b-menu__list li a:focus, .b-menu li a:active {
     border-bottom: 3px solid #fff;
 }
 

@@ -13,8 +13,13 @@
     <div class="top-header">
       <div class="top-header__wrap">
         <div class="logotype-block">
-          <div class="logo-wrap"><a href="/"><img src="<?php echo get_template_directory_uri() . '/img/logo.svg'; ?>"
-                                                  alt="Логотип" class="logo-wrap__logo-img"></a></div>
+          <div class="logo-wrap">
+            <a href="/">
+              <img
+                  src="<?php echo get_template_directory_uri() . '/img/logo.svg'; ?>"
+                  alt="Логотип" class="logo-wrap__logo-img">
+            </a>
+          </div>
         </div>
         <nav class="main-navigation">
             <?php wp_nav_menu([
