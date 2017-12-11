@@ -18,11 +18,13 @@
       ?>
       <ul class="category-list">
         <?php foreach ($categories as $category) : ?>
-          <li class="category-list__item">
-            <a href="<?php echo get_category_link($category->ID); ?>" class="category-list__item__link">
-              <?php echo $category->name ?>
-            </a>
-          </li>
+          <?php if($category->slug != 'bez-rubriki') : ?>
+            <li class="category-list__item">
+              <a href="<?php echo get_category_link($category->cat_ID); ?>" class="category-list__item__link">
+                <?php echo $category->name ?>
+              </a>
+            </li>
+          <?php endif; ?>
         <?php endforeach; ?>
       </ul>
     </div>

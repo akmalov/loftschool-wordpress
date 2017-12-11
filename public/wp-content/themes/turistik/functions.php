@@ -137,3 +137,17 @@ function getAdjacentPost($direction = 'prev', $post_types = 'post') {
   wp_cache_set($query_key, $result, 'counts');
   return $result;
 }
+
+add_filter('pre_get_posts', 'queryPostType');
+function queryPostType($query) {
+  if( is_category() ) {
+    $post_type = get_query_var('post_type');
+    if($post_type) {
+      $post_type = $post_type;
+    } else {
+      $post_type = array('akcia');
+    }
+    $query->set('post_type',$post_type);
+    return $query;
+  }
+}

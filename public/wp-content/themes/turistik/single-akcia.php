@@ -46,7 +46,7 @@
             <div class="preview-article__text"><?php echo $prev->post_title ?></div>
           </div>
         </div>
-        <div>
+        <div class="excerpt-nav">
           <?= $fields['excerpt'] ?>
         </div>
       </div>
@@ -65,7 +65,7 @@
             <div class="preview-article__text"><?php echo $next->post_title; ?></div>
           </div>
         </div>
-        <div>
+        <div class="excerpt-nav">
           <?= $fields['excerpt'] ?>
         </div>
       </div>
