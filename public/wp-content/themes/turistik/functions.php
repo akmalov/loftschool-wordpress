@@ -145,7 +145,7 @@ function queryPostType($query) {
     if($post_type) {
       $post_type = $post_type;
     } else {
-      $post_type = array('akcia');
+      $post_type = array('nav_menu_item', 'post', 'akcia');
     }
     $query->set('post_type',$post_type);
     return $query;

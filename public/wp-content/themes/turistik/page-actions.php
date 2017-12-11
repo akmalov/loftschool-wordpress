@@ -20,8 +20,14 @@ get_header(); ?>
 
         ?>
         <div class="post-wrap">
-          <div class="post-thumbnail"><img src="<?= $url ?>" alt="Image поста"
-                                           class="post-thumbnail__image"></div>
+          <?php if($fields['banner']['url']) : ?>
+            <div class="post-thumbnail"><img src="<?= $fields['banner']['url'] ?>" alt="Image поста"
+                                             class="post-thumbnail__image"></div>
+          <?php endif; ?>
+          <?php if(!$fields['banner']['url']) : ?>
+            <div class="post-thumbnail"><img src="<?php echo getPostImage() ?>" alt="Image поста"
+                                             class="post-thumbnail__image"></div>
+          <?php endif; ?>
           <div class="post-content">
             <div class="post-content__post-info">
               <div class="post-date"><?php the_date(); ?></div>
