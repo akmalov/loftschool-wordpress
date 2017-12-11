@@ -31,9 +31,9 @@
     </div>
     <div class="bottom-header">
       <div class="search-form-wrap">
-        <form class="search-form" action="/" method="post">
-          <input type="text" placeholder="Поиск..." name="s" class="search-form__input">
-          <button class="search-form__btn-search"><i class="icon icon-search"></i></button>
+        <form class="search-form" action="<?php bloginfo( 'url' ); ?>" method="get">
+          <input type="text" placeholder="Поиск..." name="s" id="search" class="search-form__input" value="<?php if(!empty($_GET['s'])){echo $_GET['s'];}?>">
+          <input type="submit" value="Найти"/>
         </form>
       </div>
     </div>
