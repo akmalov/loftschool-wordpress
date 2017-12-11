@@ -13,5 +13,6 @@ get_header(); ?>
 <?php endwhile; else : ?>
     <p><?php _e('Ничего не найдено.'); ?></p>
 <?php endif; ?>
+<?php get_sidebar(); ?>
 <?php get_footer(); ?>
 
