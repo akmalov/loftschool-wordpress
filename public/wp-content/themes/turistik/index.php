@@ -3,10 +3,13 @@
     <h1 class="title-page">Новости</h1>
     <div class="posts-list">
       <?php
+      $page = (get_query_var('paged')) ? get_query_var('paged') : 1;
       $params = [
-          'post_type' => ['post', 'akcia']
+          'posts_per_page' => 10,
+          'post_type' => ['post', 'akcia'],
+          'paged' => $page
       ];
-      $posts = query_posts($params);;
+      $posts = query_posts($params);
       ?>
 
       <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
@@ -24,7 +27,7 @@
           <?php endif; ?>
           <div class="post-content">
             <div class="post-content__post-info">
-              <div class="post-date"><?php the_date(); ?></div>
+              <div class="post-date"><?php echo date('d.m.Y', strtotime($post->post_date)); ?></div>
             </div>
             <div class="post-content__post-text">
               <div class="post-title">
@@ -51,10 +54,10 @@
         function my_navigation_template($template, $class)
         {
           return '
-    <nav class="navigation %1$s" role="navigation">
-      <div class="pagenavi-post-wrap">%3$s</div>
-    </nav>
-    ';
+            <nav class="navigation %1$s" role="navigation">
+              <div class="pagenavi-post-wrap">%3$s</div>
+            </nav>
+            ';
         }
 
         the_posts_pagination(array(
@@ -69,22 +72,6 @@
         <p><?php _e('Ничего не найдено.'); ?></p>
       <?php endif; ?>
     </div>
-    <!--      --><?php
-    //        echo get_the_posts_pagination();
-    //        wp_reset_postdata();
-    //        wp_reset_query();
-    //      ?>
-    <!--  <div class="pagenavi-post-wrap">-->
-    <!--    <a href="#" class="pagenavi-post__prev-postlink">-->
-    <!--      <i class="icon icon-angle-double-left"></i>-->
-    <!--    </a>-->
-    <!--    <span class="pagenavi-post__current">1</span>-->
-    <!--    <a href="#" class="pagenavi-post__page">2</a>-->
-    <!--    <a href="#" class="pagenavi-post__page">3</a><a href="#" class="pagenavi-post__page">...</a>-->
-    <!--    <a href="#" class="pagenavi-post__page">10</a>-->
-    <!--    <a href="#" class="pagenavi-post__next-postlink">-->
-    <!--      <i class="icon icon-angle-double-right"></i></a>-->
-    <!--  </div>-->
   </div>
 <?php get_sidebar(); ?>
 
