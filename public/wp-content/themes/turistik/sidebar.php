@@ -29,4 +29,10 @@
       </ul>
     </div>
   </div>
+  <div class="sidebar__sidebar-item">
+    <div class="sidebar-item__title">Календарь сообщений</div>
+    <div class="sidebar-item__content">
+      <?php echo get_calendar();?>
+    </div>
+  </div>
 </div>
